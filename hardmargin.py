@@ -42,19 +42,20 @@ dataset = np.loadtxt("train.txt",dtype='float')
 points,labels = dataset[:,:2], dataset[:,2]
 
 #plot dataset
-plt.figure(figsize=(5,5))
-plt.scatter(points.T[0], points.T[1], c=labels.T, cmap='bwr')
-plt.grid()
-plt.axis('equal');
-plt.show()
+##plt.figure(figsize=(5,5))
+##plt.scatter(points.T[0], points.T[1], c=labels.T, cmap='bwr')
+##plt.grid()
+##plt.axis('equal');
+##plt.show()
 
 N = len(labels)
+C = 1
 
-# CVXOPT inputs to qp.
+#CVXOPT inputs to qp.
 bv = cvx.matrix(0.0)
 qn = cvx.matrix(-np.ones(N))
-Gn = cvx.matrix(-np.eye(N))
-hn = cvx.matrix(np.zeros(N))
+Gn = cvx.matrix(np.vstack((-np.eye(N),np.eye(N))))
+hn = cvx.matrix(np.hstack((np.zeros(N),C*np.ones(N))))
 Xn = cvx.matrix(points)
 tn = cvx.matrix(labels)
 
