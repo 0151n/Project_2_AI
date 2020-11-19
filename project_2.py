@@ -72,13 +72,13 @@ def plotContours(X, t, lambdas, b, k, minRange, maxRange, step):
     
     #create contour plot
     contourcolors = ["blue","green","red"]
-    plt.contourf(x,y,z, levels=[-1e38,0,1e38], colors=["#6DE1FF","#FF568B"])
-    cs = plt.contour(x,y,z, levels=[-1, 0, 1], colors = contourcolors, linewidths=[2])
+    plt.contourf(x,y,z, levels=[-1e38,0,1e38], colors=["#6DE1FF","#FF96F4"])
+    cs = plt.contour(x,y,z, levels=[-1, 0, 1], colors = contourcolors, linewidths=[2,4,2])
     #write labels to contours
     plt.clabel(cs,inline=1)
     proxy = [plt.Rectangle((0,0),1,1,fc = pc) for pc in contourcolors]
 
-    plt.legend(proxy, ["-1", "-0.5", "0","0.5","1"])
+    plt.legend(proxy, ["-1","0","1"])
 
 
 #load training dataset
