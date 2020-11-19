@@ -125,7 +125,7 @@ for xvec,lab in zip(tpoints,tlabels):
         misclass += 1
         print(f"[{xvec[0]:7.4f},{xvec[1]:7.4f}] --> {op:+2d} ({lab:+2.0f})")
 
-print(f"\n{misclass}/{len(labels)} misclassifications")
+print(f"\n{misclass}/{len(tlabels)} misclassifications")
 
 print("no. suppport vecs " + str(np.sum(np.array(lambdas_rbf)>1e-10)))
 
